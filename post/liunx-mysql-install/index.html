@@ -4,7 +4,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>liunx环境 mysql安装 | liuzyhn</title>
 <meta name="description" content="温故而知新" />
-<link rel="shortcut icon" href="https://blog.liuzyhn.top/favicon.ico?v=1564828783516">
+<link rel="shortcut icon" href="https://blog.liuzyhn.top/favicon.ico?v=1564828915273">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://blog.liuzyhn.top/styles/main.css">
@@ -20,7 +20,7 @@
       <div class="main-content">
         <div class="site-header">
   <a href="https://blog.liuzyhn.top">
-  <img class="avatar" src="https://blog.liuzyhn.top/images/avatar.png?v=1564828783516" alt="">
+  <img class="avatar" src="https://blog.liuzyhn.top/images/avatar.png?v=1564828915273" alt="">
   </a>
   <h1 class="site-title">
     liuzyhn
@@ -95,13 +95,13 @@
             
             <div class="post-content-wrapper">
               <div class="post-content">
-                <p>sudo rpm -Uvh http://repo.mysql.com/mysql57-community-release-el6-8.noarch.rpm<br>
-sudo yum clean metadata<br>
-sudo yum makecache<br>
-sudo yum update -y<br>
-sudo yum install -y mysql-community-server<br>
-sudo grep 'temporary password' /var/log/mysqld.log<br>
-mysql -uroot -p -e &quot;ALTER USER 'root'@'localhost' IDENTIFIED BY 'Mysql@1234'&quot;</p>
+                <pre><code>sudo rpm -Uvh http://repo.mysql.com/mysql57-community-release-el6-8.noarch.rpm
+sudo yum clean metadata
+sudo yum makecache
+sudo yum update -y
+sudo yum install -y mysql-community-server
+sudo grep 'temporary password' /var/log/mysqld.log
+mysql -uroot -p -e &quot;ALTER USER 'root'@'localhost' IDENTIFIED BY 'Mysql@1234'&quot;</code></pre>
 
               </div>
               <div class="toc-container">
