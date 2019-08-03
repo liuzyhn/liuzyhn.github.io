@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.liuzyhn.top</id>
     <title>liuzyhn</title>
-    <updated>2019-08-03T10:37:28.990Z</updated>
+    <updated>2019-08-03T10:39:46.638Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.liuzyhn.top"/>
     <link rel="self" href="https://blog.liuzyhn.top/atom.xml"/>
@@ -76,13 +76,13 @@ systemctl start postgresql-9.6
         <link href="https://blog.liuzyhn.top/post/liunx-mysql-install">
         </link>
         <updated>2017-05-04T10:24:09.000Z</updated>
-        <content type="html"><![CDATA[<pre><code>		sudo rpm -Uvh http://repo.mysql.com/mysql57-community-release-el6-8.noarch.rpm
-  sudo yum clean metadata
-  sudo yum makecache
-  sudo yum update -y
-  sudo yum install -y mysql-community-server
-  sudo grep 'temporary password' /var/log/mysqld.log
-  mysql -uroot -p -e &quot;ALTER USER 'root'@'localhost' IDENTIFIED BY 'Mysql@1234'&quot;</code></pre>
+        <content type="html"><![CDATA[<p>sudo rpm -Uvh http://repo.mysql.com/mysql57-community-release-el6-8.noarch.rpm<br>
+sudo yum clean metadata<br>
+sudo yum makecache<br>
+sudo yum update -y<br>
+sudo yum install -y mysql-community-server<br>
+sudo grep 'temporary password' /var/log/mysqld.log<br>
+mysql -uroot -p -e &quot;ALTER USER 'root'@'localhost' IDENTIFIED BY 'Mysql@1234'&quot;</p>
 ]]></content>
     </entry>
 </feed>
