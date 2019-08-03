@@ -1,105 +1,112 @@
+<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" >
+
 <title>postgresql 安装 | liuzyhn</title>
-<meta name="description" content="温故而知新" />
-<link rel="shortcut icon" href="https://blog.liuzyhn.top/favicon.ico?v=1564828915273">
+<meta name="description" content="温故而知新">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="shortcut icon" href="https://blog.liuzyhn.top/favicon.ico?v=1564829231715">
+
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="stylesheet" href="https://unpkg.com/papercss@1.6.1/dist/paper.min.css" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://blog.liuzyhn.top/styles/main.css">
 
-<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
 
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
 
   </head>
   <body>
-    <div class="main">
-      <div class="main-content">
-        <div class="site-header">
-  <a href="https://blog.liuzyhn.top">
-  <img class="avatar" src="https://blog.liuzyhn.top/images/avatar.png?v=1564828915273" alt="">
-  </a>
-  <h1 class="site-title">
-    liuzyhn
-  </h1>
-  <p class="site-description">
-    温故而知新
-  </p>
-  <div class="menu-container">
-    
-      
-        <a href="/" class="menu">
-          首页
-        </a>
-      
-    
-      
-        <a href="/archives" class="menu">
-          归档
-        </a>
-      
-    
-      
-        <a href="/tags" class="menu">
-          标签
-        </a>
-      
-    
-      
-        <a href="/post/about" class="menu">
-          关于
-        </a>
-      
-    
+  
+    <nav class="navbar border fixed split-nav">
+  <div class="nav-brand">
+    <h3><a href="https://blog.liuzyhn.top">liuzyhn</a></h3>
   </div>
-  <div class="social-container">
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-  </div>
-</div>
-
-        <div class="post-detail">
-          <article class="post">
-            <h2 class="post-title">
-              postgresql 安装
-            </h2>
-            <div class="post-info">
-              <span>
-                2017-08-14
-              </span>
-              <span>
-                1 min read
-              </span>
-              
-                <a href="https://blog.liuzyhn.top/tag/5QoOiCbgsw" class="post-tag">
-                  # postgresql
-                </a>
-              
-                <a href="https://blog.liuzyhn.top/tag/KKugJxjW0a" class="post-tag">
-                  # centos7
-                </a>
-              
-                <a href="https://blog.liuzyhn.top/tag/rOu6UwE6K" class="post-tag">
-                  # liunx
-                </a>
-              
-            </div>
+  <div class="collapsible">
+    <input id="collapsible1" type="checkbox" name="collapsible1">
+    <button>
+      <label for="collapsible1">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+      </label>
+    </button>
+    <div class="collapsible-body">
+      <ul class="inline">
+        
+          <li>
             
-            <div class="post-content-wrapper">
-              <div class="post-content">
-                <p>记录下postgresql在centos7上安装中的使用的相关命定，postgresql安装说明<a href="https://www.postgresql.org/download/linux/redhat/#yum">官网地址</a></p>
+              <a href="/" class="menu">
+                首页
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/archives" class="menu">
+                归档
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/tags" class="menu">
+                标签
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/post/about" class="menu">
+                关于
+              </a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div id="top" class="row site">
+      <div class="sm-12 md-8 col">
+        <div class="paper">
+          <article class="article">
+            <h1>postgresql 安装</h1>
+            <p class="article-meta">
+              2017-08-14
+              
+                <a href="https://blog.liuzyhn.top/tag/5QoOiCbgsw" class="badge secondary">
+                  postgresql
+                </a>
+              
+                <a href="https://blog.liuzyhn.top/tag/KKugJxjW0a" class="badge secondary">
+                  centos7
+                </a>
+              
+                <a href="https://blog.liuzyhn.top/tag/rOu6UwE6K" class="badge warning">
+                  liunx
+                </a>
+              
+            </p>
+            
+            <div class="post-content">
+              <p>记录下postgresql在centos7上安装中的使用的相关命定，postgresql安装说明<a href="https://www.postgresql.org/download/linux/redhat/#yum">官网地址</a></p>
 <!-- more -->
 <h3 id="安装yum源install-the-repository-rpm">安装yum源(Install the repository RPM)</h3>
 <pre><code>yum install https://download.postgresql.org/pub/repos/yum/9.6/redhat/rhel-7-x86_64/pgdg-centos96-9.6-3.noarch.rpm
@@ -118,115 +125,151 @@ systemctl enable postgresql-9.6
 systemctl start postgresql-9.6
 </code></pre>
 
-              </div>
-              <div class="toc-container">
-                <ul class="markdownIt-TOC">
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#%E5%AE%89%E8%A3%85yum%E6%BA%90install-the-repository-rpm">安装yum源(Install the repository RPM)</a></li>
-<li><a href="#%E5%AE%89%E8%A3%85%E5%AE%A2%E6%88%B7%E7%AB%AFinstall-the-client-packages">安装客户端(Install the client packages)</a></li>
-<li><a href="#%E5%AE%89%E8%A3%85%E6%9C%8D%E5%8A%A1%E7%AB%AFinstall-the-server-packages">安装服务端(install the server packages)</a></li>
-<li><a href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E5%88%9D%E5%A7%8B%E5%8C%96%E5%8F%8A%E5%90%AF%E5%8A%A8initialize-the-database-and-enable-automatic-start">数据库初始化及启动(initialize the database and enable automatic start:)</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-
-              </div>
             </div>
           </article>
         </div>
-
-        
-          <div class="next-post">
-            <div class="next">下一篇</div>
-            <a href="https://blog.liuzyhn.top/post/liunx-mysql-install">
-              <h3 class="post-title">
-                liunx环境 mysql安装
-              </h3>
-            </a>
-          </div>
-        
-
+        <div class="paper" data-aos="fade-in">
+          
+            <div class="next-post">
+              <div class="next">
+                下一篇
+              </div>
+              <a href="https://blog.liuzyhn.top/post/liunx-mysql-install">
+                <h3 class="post-title">
+                  liunx环境 mysql安装
+                </h3>
+              </a>
+            </div>
+          
+        </div>
         
           
-            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
-<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-
-<div id="gitalk-container"></div>
-
-<script>
-
-  var gitalk = new Gitalk({
-    clientID: 'ac7ca979526c2aac4403',
-    clientSecret: '2aa26bb1921e4e73b9a1548335a24ea001023a8e',
-    repo: 'liuzyhn.github.io',
-    owner: 'liuzyhn',
-    admin: ['liuzyhn'],
-    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
-    distractionFreeMode: false  // Facebook-like distraction free mode
-  })
-
-  gitalk.render('gitalk-container')
-
-</script>
-
+            <div class="paper" data-aos="fade-in">
+              <div id="gitalk-container"></div>
+            </div>
           
 
           
         
+      </div>
 
-        <div class="site-footer">
-  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | 
-  <a class="rss" href="https://blog.liuzyhn.top/atom.xml" target="_blank">RSS</a>
+      <div class="sm-12 md-4 col sidebar">
+  <div class="paper info-container">
+    <img src="https://blog.liuzyhn.top/images/avatar.png?v=1564829231715" class="no-responsive avatar">
+    <div class="text-muted">温故而知新</div>
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+  </div>
+  <div class="paper">
+    <div class="sidebar-title">
+      最新文章
+    </div>
+    <div class="row">
+      <ul>
+        
+          
+            <li>
+              <a href="https://blog.liuzyhn.top/post/hello-gridea">Hello Gridea</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://blog.liuzyhn.top/post/postgresql-install">postgresql 安装</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://blog.liuzyhn.top/post/liunx-mysql-install">liunx环境 mysql安装</a>
+            </li>
+          
+        
+      </ul>
+    </div>
+  </div>
+  <div class="paper">
+    <div class="sidebar-title">
+      标签列表
+    </div>
+    <div class="row">
+      
+        <a href="https://blog.liuzyhn.top/tag/_6QR-mceT" class="badge secondary">
+          Gridea
+        </a>
+      
+        <a href="https://blog.liuzyhn.top/tag/5QoOiCbgsw" class="badge secondary">
+          postgresql
+        </a>
+      
+        <a href="https://blog.liuzyhn.top/tag/KKugJxjW0a" class="badge ">
+          centos7
+        </a>
+      
+        <a href="https://blog.liuzyhn.top/tag/rOu6UwE6K" class="badge success">
+          liunx
+        </a>
+      
+        <a href="https://blog.liuzyhn.top/tag/BLV0QCNOGy" class="badge warning">
+          mysql
+        </a>
+      
+    </div>
+  </div>
+  <div class="paper">
+    Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://blog.liuzyhn.top/atom.xml" target="_blank">RSS</a>
+  </div>
 </div>
 
-<script>
-  hljs.initHighlightingOnLoad()
 
-  let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+    </div>
 
-  // This should probably be throttled.
-  // Especially because it triggers during smooth scrolling.
-  // https://lodash.com/docs/4.17.10#throttle
-  // You could do like...
-  // window.addEventListener("scroll", () => {
-  //    _.throttle(doThatStuff, 100);
-  // });
-  // Only not doing it here to keep this Pen dependency-free.
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 
-  window.addEventListener("scroll", event => {
-    let fromTop = window.scrollY;
+<script type="application/javascript">
 
-    mainNavLinks.forEach((link, index) => {
-      let section = document.getElementById(decodeURI(link.hash).substring(1));
-      let nextSection = null
-      if (mainNavLinks[index + 1]) {
-        nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
-      }
-      console.log('section.offsetHeight', section.offsetHeight);
-      if (section.offsetTop <= fromTop) {
-        if (nextSection) {
-          if (nextSection.offsetTop > fromTop) {
-            link.classList.add("current");
-          } else {
-            link.classList.remove("current");    
-          }
-        } else {
-          link.classList.add("current");
-        }
-      } else {
-        link.classList.remove("current");
-      }
-    });
-  });
+AOS.init();
+
+hljs.initHighlightingOnLoad()
 
 </script>
 
-      </div>
-    </div>
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: 'ac7ca979526c2aac4403',
+        clientSecret: '2aa26bb1921e4e73b9a1548335a24ea001023a8e',
+        repo: 'liuzyhn.github.io',
+        owner: 'liuzyhn',
+        admin: ['liuzyhn'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
+
+
+
+
   </body>
 </html>
