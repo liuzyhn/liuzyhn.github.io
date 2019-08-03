@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.liuzyhn.top</id>
     <title>liuzyhn</title>
-    <updated>2019-08-03T09:06:26.376Z</updated>
+    <updated>2019-08-03T10:37:28.990Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.liuzyhn.top"/>
     <link rel="self" href="https://blog.liuzyhn.top/atom.xml"/>
@@ -40,6 +40,49 @@
 <p>未来，它一定会成为你离不开的伙伴</p>
 <p>尽情发挥你的才华吧！</p>
 <p>😘 Enjoy~</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[postgresql 安装]]></title>
+        <id>https://blog.liuzyhn.top/post/postgresql-install</id>
+        <link href="https://blog.liuzyhn.top/post/postgresql-install">
+        </link>
+        <updated>2017-08-14T02:13:22.000Z</updated>
+        <summary type="html"><![CDATA[<p>记录下postgresql在centos7上安装中的使用的相关命定，postgresql安装说明<a href="https://www.postgresql.org/download/linux/redhat/#yum">官网地址</a></p>
+]]></summary>
+        <content type="html"><![CDATA[<p>记录下postgresql在centos7上安装中的使用的相关命定，postgresql安装说明<a href="https://www.postgresql.org/download/linux/redhat/#yum">官网地址</a></p>
+<!-- more -->
+<h3 id="安装yum源install-the-repository-rpm">安装yum源(Install the repository RPM)</h3>
+<pre><code>yum install https://download.postgresql.org/pub/repos/yum/9.6/redhat/rhel-7-x86_64/pgdg-centos96-9.6-3.noarch.rpm
+</code></pre>
+<h3 id="安装客户端install-the-client-packages">安装客户端(Install the client packages)</h3>
+<pre><code>yum install postgresql96
+</code></pre>
+<h3 id="安装服务端install-the-server-packages">安装服务端(install the server packages)</h3>
+<pre><code>yum install postgresql96-server
+#or
+yum install postgresql-server
+</code></pre>
+<h3 id="数据库初始化及启动initialize-the-database-and-enable-automatic-start">数据库初始化及启动(initialize the database and enable automatic start:)</h3>
+<pre><code>/usr/pgsql-9.6/bin/postgresql96-setup initdb
+systemctl enable postgresql-9.6
+systemctl start postgresql-9.6
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[liunx环境 mysql安装]]></title>
+        <id>https://blog.liuzyhn.top/post/liunx-mysql-install</id>
+        <link href="https://blog.liuzyhn.top/post/liunx-mysql-install">
+        </link>
+        <updated>2017-05-04T10:24:09.000Z</updated>
+        <content type="html"><![CDATA[<pre><code>		sudo rpm -Uvh http://repo.mysql.com/mysql57-community-release-el6-8.noarch.rpm
+  sudo yum clean metadata
+  sudo yum makecache
+  sudo yum update -y
+  sudo yum install -y mysql-community-server
+  sudo grep 'temporary password' /var/log/mysqld.log
+  mysql -uroot -p -e &quot;ALTER USER 'root'@'localhost' IDENTIFIED BY 'Mysql@1234'&quot;</code></pre>
 ]]></content>
     </entry>
 </feed>
