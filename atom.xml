@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.liuzyhn.top</id>
-    <title>liuzyhn</title>
-    <updated>2019-08-03T10:53:02.533Z</updated>
+    <title>学无止境</title>
+    <updated>2019-08-03T11:07:17.172Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.liuzyhn.top"/>
     <link rel="self" href="https://blog.liuzyhn.top/atom.xml"/>
-    <subtitle>温故而知新</subtitle>
+    <subtitle>人生不穷,
+有志为根.
+学海无涯,唯勤是岸.</subtitle>
     <logo>https://blog.liuzyhn.top/images/avatar.png</logo>
     <icon>https://blog.liuzyhn.top/favicon.ico</icon>
-    <rights>All rights reserved 2019, liuzyhn</rights>
+    <rights>All rights reserved 2019, 学无止境</rights>
     <entry>
         <title type="html"><![CDATA[Hello Gridea]]></title>
         <id>https://blog.liuzyhn.top/post/hello-gridea</id>
