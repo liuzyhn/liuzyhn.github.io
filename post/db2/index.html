@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>db2 相关 | 学无止境</title>
+<meta name="description" content="人生不穷,
+有志为根.
+学海无涯,唯勤是岸.">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://blog.liuzyhn.top/favicon.ico?v=1565262111031">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://blog.liuzyhn.top/styles/main.css">
+
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://blog.liuzyhn.top">
+        <img src="https://blog.liuzyhn.top/images/avatar.png?v=1565262111031" class="site-logo">
+        <h1 class="site-title">学无止境</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      人生不穷,
+有志为根.
+学海无涯,唯勤是岸.
+    </div>
+    <div class="site-footer">
+      中国 🇨🇳 | <a class="rss" href="https://blog.liuzyhn.top/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">db2 相关</h2>
+            <div class="post-date">2019-08-08</div>
+            
+            <div class="post-content">
+              <h1 id="连接数据库">连接数据库</h1>
+<p>db2 connect to xfjr</p>
+<!-- more -->
+<p>查询 schema<br>
+db2 &quot;select * from sysibm.sysschemata&quot;<br>
+db2 &quot;select NAME,DEFINER,OWNER from sysibm.sysschemata&quot;</p>
+<p>select TABNAME from syscat.tables  where tabschema=´xfjrcb´;</p>
+<h1 id="删除数据库">删除数据库</h1>
+<h2 id="查看现有链接">查看现有链接</h2>
+<p>db2 list application</p>
+<h2 id="清空链接">清空链接</h2>
+<p>db2 force applications all</p>
+<h2 id="删除库">删除库</h2>
+<p>db2 drop db xfjr</p>
+<h2 id="查看当前有哪些库">查看当前有哪些库</h2>
+<p>db2 list db directory</p>
+<h1 id="db2-导入导出">db2 导入导出</h1>
+<ol>
+<li>
+<p>导出结构<br>
+mkdir ~/wdpt<br>
+db2look -d xfjr -u db2inst1 -i db2inst1 -a -e -l -o wdpt.sql</p>
+<p>单表结构导出<br>
+db2look -d xfjr -t XFJRCC.CC_LN_LO_INF -e -o xfjrcc_cc_ln_lo_inf.sql</p>
+</li>
+<li>
+<p>导出数据<br>
+mkdir ~/wdpt/data<br>
+cd ~/wdpt/data<br>
+db2move xfjr export [-sn xfjrcb --schema 导出]</p>
+</li>
+</ol>
+<h1 id="备份">备份</h1>
+<p>单表备份<br>
+db2 &quot;export to class_method.ixf of ixf select * from class_method &quot;;<br>
+db2 &quot;import from code_library.ixf of ixf replace into code_library&quot;;</p>
+<p>示例：<br>
+db2 &quot;export to XFJRCS_MESSAGE_SUBSCRIBE_INFO.ixf of ixf select * from XFJRCS.MESSAGE_SUBSCRIBE_INFO&quot;;<br>
+db2 &quot;import from XFJRCS_MESSAGE_SUBSCRIBE_INFO.ixf of ixf replace into XFJRCU.MESSAGE_SUBSCRIBE_INFO&quot;;</p>
+<h1 id="导入数据">导入数据</h1>
+<ol>
+<li>
+<p>整理数据<br>
+将 wdpt.ddl 拆分为 建库/表空间（~/wdpt/wdpt.ddl）、 schema/seq/表结构 (~/wdpt/wdpt-tables.ddl)、 表外键 (~/wdpt/wdpt-tables-fk.ddl) 三个文件</p>
+</li>
+<li>
+<p>新建库（~/wdpt/wdpt.ddl）<br>
+db2 -tvf ~/wdpt/wdpt.ddl</p>
+</li>
+<li>
+<p>新建表 (~/wdpt/wdpt-tables.ddl)<br>
+db2 -tvf ~/wdpt/wdpt-tables.ddl</p>
+</li>
+<li>
+<p>导入数据<br>
+cd ~/wdpt/data<br>
+db2 connect to xfjr user xfjr using xfjr<br>
+db2move xfjr import -u xfjr -p xfjr</p>
+</li>
+<li>
+<p>新建表外键<br>
+db2 connect to xfjr user xfjr using xfjr<br>
+db2 -tvf ~/wdpt/wdpt-tables-fk.ddl</p>
+</li>
+</ol>
+<p>#查询表空间使用详情<br>
+db2 connect to xfjr<br>
+db2 list tablespaces show detail</p>
+<p>#查询表空间容器创建情况<br>
+db2pd -d xfjr -tablespace</p>
+<h1 id="拓展表空间命令">拓展表空间命令</h1>
+<p>alter tablespace <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mrow><mi>t</mi><mi>b</mi><mi>s</mi></mrow><mi>e</mi><mi>x</mi><mi>t</mi><mi>e</mi><mi>n</mi><mi>d</mi><mo>(</mo><mi>f</mi><mi>i</mi><mi>l</mi><msup><mi>e</mi><mo mathvariant="normal">′</mo></msup></mrow><annotation encoding="application/x-tex">{tbs} extend (file&#x27;</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.001892em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathdefault">t</span><span class="mord mathdefault">b</span><span class="mord mathdefault">s</span></span><span class="mord mathdefault">e</span><span class="mord mathdefault">x</span><span class="mord mathdefault">t</span><span class="mord mathdefault">e</span><span class="mord mathdefault">n</span><span class="mord mathdefault">d</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mord mathdefault">i</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord"><span class="mord mathdefault">e</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span></span></span></span>{path1}'<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mrow><mi>s</mi><mi>i</mi><mi>z</mi><mi>e</mi></mrow><mo separator="true">,</mo><mi>f</mi><mi>i</mi><mi>l</mi><msup><mi>e</mi><mo mathvariant="normal">′</mo></msup></mrow><annotation encoding="application/x-tex">{size},file&#x27;</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.946332em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault">s</span><span class="mord mathdefault">i</span><span class="mord mathdefault" style="margin-right:0.04398em;">z</span><span class="mord mathdefault">e</span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mord mathdefault">i</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord"><span class="mord mathdefault">e</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span></span></span></span>{path2}'${size})</p>
+<p>alter tablespace DAT_32K extend (file'/dbdir/db2inst1/NODE0000/XFJR/TBS/rdb_d32k_01’2G,file'/dbdir/db2inst1/NODE0000/XFJR/TBS/rdb_d32k_02’2G)</p>
+
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://blog.liuzyhn.top/post/hello-gridea">
+                  <h3 class="post-title">
+                    Hello Gridea
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+              
+                <div id="gitalk-container" data-aos="fade-in"></div>
+              
+
+              
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: 'ac7ca979526c2aac4403',
+        clientSecret: '2aa26bb1921e4e73b9a1548335a24ea001023a8e',
+        repo: 'liuzyhn.github.io',
+        owner: 'liuzyhn',
+        admin: ['liuzyhn'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
+
+
+
+
+  </body>
+</html>
