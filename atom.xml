@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.liuzyhn.top</id>
     <title>学无止境</title>
-    <updated>2019-08-25T14:33:40.247Z</updated>
+    <updated>2019-08-25T14:43:03.771Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.liuzyhn.top"/>
     <link rel="self" href="https://blog.liuzyhn.top/atom.xml"/>
@@ -12,6 +12,264 @@
     <logo>https://blog.liuzyhn.top/images/avatar.png</logo>
     <icon>https://blog.liuzyhn.top/favicon.ico</icon>
     <rights>All rights reserved 2019, 学无止境</rights>
+    <entry>
+        <title type="html"><![CDATA[was安装]]></title>
+        <id>https://blog.liuzyhn.top/post/was-an-zhuang</id>
+        <link href="https://blog.liuzyhn.top/post/was-an-zhuang">
+        </link>
+        <updated>2019-08-25T14:36:28.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="was安装">was安装</h1>
+<h2 id="一-网络工具等安装">一. 网络工具等安装：</h2>
+<pre><code>yum install -y gcc make crypto-utils net-tools wget zip unzip
+</code></pre>
+<h2 id="二-iim-ibm-installation-manager-安装">二. IIM (IBM Installation Manager) 安装</h2>
+<h3 id="安装包">安装包：</h3>
+<pre><code>package/agent/agent.installer.linux.gtk.x86_64_1.8.9002.20181015_1517.zip
+</code></pre>
+<h3 id="安装命定">安装命定：</h3>
+<pre><code>./con-disk-set-inst.sh -silent -acceptLicense -nl zh -installationDirectory /opt/IBM/InstallationManager/eclipse
+</code></pre>
+<p>第1步响应</br><img src="https://blog.liuzyhn.top/post-images/agent1.png" alt=""></br><br>
+输入 <code>N</code> 回车</p>
+<p>第2步响应</br><img src="https://blog.liuzyhn.top/post-images/agent2.png" alt=""></br><br>
+输入 <code>A</code> 回车</p>
+<p>第3步响应</br><img src="https://blog.liuzyhn.top/post-images/agent3.png" alt=""></br><br>
+输入 <code>A</code> 回车</p>
+<p>第4步响应</br><img src="https://blog.liuzyhn.top/post-images/agent4.png" alt=""></br><br>
+输入 <code>N</code> 回车</p>
+<p>第5步响应</br><img src="https://blog.liuzyhn.top/post-images/agent5.png" alt=""></br><br>
+输入 <code>N</code> 回车</p>
+<p>第6步响应</br><img src="https://blog.liuzyhn.top/post-images/agent6.png" alt=""></br><br>
+输入 <code>I</code> 回车</p>
+<p>第7步响应</br><img src="https://blog.liuzyhn.top/post-images/agent7.png" alt=""></br><br>
+输入 <code>R</code> 回车</p>
+<p>第8步响应</br><img src="https://blog.liuzyhn.top/post-images/agent8.png" alt=""></br><br>
+输入 <code>X</code> 回车</p>
+<p>安装完成</p>
+<h2 id="三-安装介质包">三. 安装介质包</h2>
+<ol>
+<li>
+<p>安装包：</p>
+<p>package/jzb/WASND_v8.5.5_1of3.zip </br><br>
+package/jzb/WASND_v8.5.5_2of3.zip </br><br>
+package/jzb/WASND_v8.5.5_3of3.zip </br></p>
+</li>
+<li>
+<p>解压介质包到： /opt/package/was/jzb/WASND_v8.5.5</p>
+</li>
+<li>
+<p>解压完文件列表<img src="https://blog.liuzyhn.top/post-images/wasnd.png" alt=""></p>
+</li>
+<li>
+<p>获取软件包标识，下面安装需要用到此参数：</p>
+</li>
+</ol>
+<pre><code>cd /opt/IBM/InstallationManager/eclipse/tools
+./imcl listAvailablePackages -repositories /opt/package/was/jzb/WASND_v8.5.5
+</code></pre>
+<p>执行结果<img src="https://blog.liuzyhn.top/post-images/wasnd1.png" alt=""></p>
+<ol start="5">
+<li>安装was介质包</li>
+</ol>
+<pre><code>cd /opt/IBM/InstallationManager/eclipse/tools
+./imcl install com.ibm.websphere.ND.v85_8.5.5000.20130514_1044 \
+-repositories /opt/package/was/jzb/WASND_v8.5.5/repository.config \
+-installationDirectory /opt/IBM/WebSphere/AppServer \
+-sharedResourcesDirectory /opt/IBM/IMShared \
+-properties cic.selector.nl=zh \
+-acceptLicense \
+-showVerboseProgress
+</code></pre>
+<p>执行结果,有个警告不影响<img src="https://blog.liuzyhn.top/post-images/wasnd2.png" alt=""></p>
+<h2 id="四-通过升级包升级到-85514">四. 通过升级包升级到 8.5.5.14</h2>
+<ol>
+<li>升级包下载地址：</li>
+</ol>
+<pre><code>https://ak-delivery04-mul.dhe.ibm.com/sar/CMA/WSA/07qzk/0/8.5.5-WS-WAS-FP014-part1.zip
+https://ak-delivery04-mul.dhe.ibm.com/sar/CMA/WSA/07qzo/0/8.5.5-WS-WAS-FP014-part2.zip
+https://ak-delivery04-mul.dhe.ibm.com/sar/CMA/WSA/07qzp/0/8.5.5-WS-WAS-FP014-part3.zip
+</code></pre>
+<ol start="2">
+<li>
+<p>升级包：<br>
+package/fix/8.5.5-WS-WAS-FP014-part1.zip<br>
+package/fix/8.5.5-WS-WAS-FP014-part2.zip<br>
+package/fix/8.5.5-WS-WAS-FP014-part3.zip</p>
+</li>
+<li>
+<p>解压后到： /opt/package/was/fix/85514was</p>
+</li>
+</ol>
+<p>解压后内容<img src="https://blog.liuzyhn.top/post-images/85514was.png" alt=""></p>
+<ol start="4">
+<li>安装升级包：</li>
+</ol>
+<pre><code>cd /opt/IBM/InstallationManager/eclipse/tools
+./imcl updateAll \
+-repositories /opt/package/was/fix/85514was/repository.config \
+-installationDirectory /opt/IBM/WebSphere/AppServer/ \
+-acceptLicense \
+-showVerboseProgress
+</code></pre>
+<p>执行结果<img src="https://blog.liuzyhn.top/post-images/85514was-update.png" alt=""></p>
+<ol start="5">
+<li>安装成功后，查看was版本是否为8.5.5.2：</li>
+</ol>
+<pre><code>cd /opt/IBM/WebSphere/AppServer/bin/
+./versionInfo.sh
+</code></pre>
+<p>执行结果<img src="https://blog.liuzyhn.top/post-images/versionInfo.png" alt=""></p>
+<h2 id="五-was用命令创建节点">五. WAS用命令创建节点</h2>
+<ol>
+<li>利用模板创建profile dmgr</li>
+</ol>
+<pre><code>cd /opt/IBM/WebSphere/AppServer/bin/
+./manageprofiles.sh -create \
+-templatePath /opt/IBM/WebSphere/AppServer/profileTemplates/dmgr \
+-profilePath /opt/IBM/WebSphere/AppServer/profiles/Dmgr01 \
+-enableAdminSecurity true \
+-profileName Dmgr01 \
+-adminUserName admin \
+-adminPassword 11111
+</code></pre>
+<p><code>hostname</code> 指的是主机名</p>
+<p>执行结果<img src="https://blog.liuzyhn.top/post-images/profile-dmgr1.png" alt=""></p>
+<p>概要文件的更多信息，查阅:</p>
+<p>cat /opt/IBM/WebSphere/AppServer/profiles/Dmgr01/logs/AboutThisProfile.txt</p>
+<p>查阅结果<img src="https://blog.liuzyhn.top/post-images/dmgr01-AboutThisProfile.png" alt=""></p>
+<ol start="2">
+<li>启动 profile dmgr</li>
+</ol>
+<pre><code>cd /opt/IBM/WebSphere/AppServer/profiles/Dmgr01/bin/
+./startManager.sh
+</code></pre>
+<p>执行结果<img src="https://blog.liuzyhn.top/post-images/dmgr-start.png" alt=""></p>
+<ol start="2">
+<li>
+<p>建立custom的profile<br>
+https://www.cnblogs.com/lyr2012/archive/2012/06/12/2546300.html</p>
+<p>使用的模版为 /opt/IBM/WebSphere/AppServer/profileTemplates/managed</p>
+</li>
+</ol>
+<pre><code>cd /opt/IBM/WebSphere/AppServer/bin/
+./manageprofiles.sh -create \
+-templatePath /opt/IBM/WebSphere/AppServer/profileTemplates/managed \
+-profilePath /opt/IBM/WebSphere/AppServer/profiles/AppSrv01 \
+-profileName AppSrv01
+
+cd /opt/IBM/WebSphere/AppServer/profiles/AppSrv01/bin
+./addNode.sh 127.0.0.1 -username admin -password 11111
+</code></pre>
+<p>172.31.142.156 是服务器ip</p>
+<p>建立custom的profile结果 <img src="https://blog.liuzyhn.top/post-images/appsrv01.png" alt=""><br>
+添加节点结果 <img src="https://blog.liuzyhn.top/post-images/addnode1.png" alt=""></p>
+<ol start="3">
+<li>启动AppSrv01节点</li>
+</ol>
+<pre><code>cd /opt/IBM/WebSphere/AppServer/profiles/AppSrv01/bin
+./startNode.sh
+</code></pre>
+<p>执行结果： 响应失败 其实已经成功 在页面可以访问到该节点<img src="https://blog.liuzyhn.top/post-images/startnode0.png" alt=""><br>
+截图<img src="https://blog.liuzyhn.top/post-images/startnode1.png" alt=""></p>
+<h2 id="六-新建服务器-及配置">六. 新建服务器、及配置</h2>
+<p>以cs为例：</p>
+<p>图1 <img src="https://blog.liuzyhn.top/post-images/server1.png" alt=""></br><br>
+图2 <img src="https://blog.liuzyhn.top/post-images/server2.png" alt=""></br><br>
+图3 <img src="https://blog.liuzyhn.top/post-images/server3.png" alt=""></br><br>
+图4 <img src="https://blog.liuzyhn.top/post-images/server4.png" alt=""></br><br>
+图5 <img src="https://blog.liuzyhn.top/post-images/server5.png" alt=""></br></p>
+<p>特定于服务器的应用程序设置 图6 <img src="https://blog.liuzyhn.top/post-images/server6.png" alt=""></br><br>
+web容器设置：<br>
+图7-1 <img src="https://blog.liuzyhn.top/post-images/server7-1.png" alt=""> </br><br>
+图7-2 <img src="https://blog.liuzyhn.top/post-images/server7-2.png" alt=""> </br><br>
+图7-3 <img src="https://blog.liuzyhn.top/post-images/server7-3.png" alt=""> </br><br>
+com.ibm.ws.webcontainer.extractHostHeaderPort=true </br><br>
+trusthostheaderport=true </br></p>
+<p>图8-1 <img src="https://blog.liuzyhn.top/post-images/server8-1.png" alt=""> </br><br>
+图8-2 <img src="https://blog.liuzyhn.top/post-images/server8-2.png" alt=""> </br><br>
+org.hibernate.jpa.HibernatePersistenceProvider</p>
+<p>图9-1 <img src="https://blog.liuzyhn.top/post-images/server9-1.png" alt=""> </br><br>
+图9-2 <img src="https://blog.liuzyhn.top/post-images/server9-2.png" alt=""> </br><br>
+图9-3 <img src="https://blog.liuzyhn.top/post-images/server9-3.png" alt=""> </br></p>
+<p>图10-1 <img src="https://blog.liuzyhn.top/post-images/server10-1.png" alt=""> </br><br>
+图10-2 <img src="https://blog.liuzyhn.top/post-images/server10-2.png" alt=""> </br><br>
+图10-3 <img src="https://blog.liuzyhn.top/post-images/server10-3.png" alt=""> </br><br>
+图10-4 <img src="https://blog.liuzyhn.top/post-images/server10-4.png" alt=""> </br><br>
+com.ibm.websphere.persistence.ApplicationsExcludedFromJpaProcessing</p>
+<p>图10-5 <img src="https://blog.liuzyhn.top/post-images/server10-5.png" alt=""> </br><br>
+图10-6 <img src="https://blog.liuzyhn.top/post-images/server10-6.png" alt=""> </br><br>
+com.ibm.websphere.persistence.ApplicationsExcludedFromJpaProcessing</p>
+<h2 id="七-配置修改-优化">七. 配置修改、优化</h2>
+<ol>
+<li>部署内存：</li>
+</ol>
+<p>图1 <img src="https://blog.liuzyhn.top/post-images/deployment-manager1.png" alt=""></br><br>
+图2 <img src="https://blog.liuzyhn.top/post-images/deployment-manager2.png" alt=""></br><br>
+图3 <img src="https://blog.liuzyhn.top/post-images/deployment-manager3.png" alt=""></br><br>
+图4 <img src="https://blog.liuzyhn.top/post-images/deployment-manager4.png" alt=""></br><br>
+图5 <img src="https://blog.liuzyhn.top/post-images/deployment-manager5.png" alt=""></br></p>
+<ol start="2">
+<li>服务器内存：</li>
+</ol>
+<p>图1 <img src="https://blog.liuzyhn.top/post-images/server-manager1.png" alt=""></br><br>
+图2 <img src="https://blog.liuzyhn.top/post-images/server-manager2.png" alt=""></br><br>
+图3 <img src="https://blog.liuzyhn.top/post-images/server-manager3.png" alt=""></br><br>
+图4 <img src="https://blog.liuzyhn.top/post-images/server-manager4.png" alt=""></br><br>
+图5 <img src="https://blog.liuzyhn.top/post-images/server-manager5.png" alt=""></br></p>
+<ol start="3">
+<li>虚拟主机添加端口开放:<br>
+<br>
+用途：<br>
+cu: 7080<br>
+cs: 7081<br>
+cb: 7082<br>
+cc: 7083<br>
+ce: 7084<br>
+urule: 7085</li>
+</ol>
+<p>图1 <img src="https://blog.liuzyhn.top/post-images/virtual_host_port1.png" alt=""></br><br>
+图2 <img src="https://blog.liuzyhn.top/post-images/virtual_host_port2.png" alt=""></br><br>
+图3 <img src="https://blog.liuzyhn.top/post-images/virtual_host_port3.png" alt=""></br><br>
+图4 <img src="https://blog.liuzyhn.top/post-images/virtual_host_port4.png" alt=""></br><br>
+图5 <img src="https://blog.liuzyhn.top/post-images/virtual_host_port5.png" alt=""></br></p>
+<ol start="4">
+<li>修改服务器http端口:</br><br>
+<br>
+以cu为例：</li>
+</ol>
+<p>图1 <img src="https://blog.liuzyhn.top/post-images/server_port1.png" alt=""></br><br>
+图2 <img src="https://blog.liuzyhn.top/post-images/server_port2.png" alt=""></br><br>
+图3 <img src="https://blog.liuzyhn.top/post-images/server_port3.png" alt=""></br><br>
+图4 <img src="https://blog.liuzyhn.top/post-images/server_port4.png" alt=""></br></p>
+<h2 id="八-添加数据库驱动-jpa共享库">八. 添加数据库驱动、jpa共享库</h2>
+<pre><code>antlr-2.7.7.jar 
+geronimo-jta_1.1_spec-1.1.1.jar
+hibernate-entitymanager-5.1.0.Final.jar
+javassist-3.20.0-GA.jar
+validation-api-1.1.0.Final.jar
+classmate-1.3.0.jar
+hibernate-commons-annotations-5.0.1.Final.jar
+hibernate-jpa-2.1-api-1.0.0.Final.jar
+javax.el-api-3.0.0.jar
+dom4j-1.6.1.jar
+hibernate-core-5.1.0.Final.jar
+hibernate-validator-5.2.4.Final.jar
+jboss-logging-3.3.0.Final.jar
+</code></pre>
+<p>图1 <img src="https://blog.liuzyhn.top/post-images/db2_shared1.png" alt=""> </br><br>
+图2 <img src="https://blog.liuzyhn.top/post-images/db2_shared2.png" alt=""> </br><br>
+图3 <img src="https://blog.liuzyhn.top/post-images/db2_shared3.png" alt=""> </br><br>
+图4 <img src="https://blog.liuzyhn.top/post-images/db2_shared4.png" alt=""> </br></p>
+<h2 id="九-新建应用-及配置">九. 新建应用、及配置</h2>
+<p>以cu为例:</p>
+<p>图1 <img src="https://blog.liuzyhn.top/post-images/addapp1.png" alt=""></br><br>
+图2 <img src="https://blog.liuzyhn.top/post-images/addapp2.png" alt=""></br><br>
+图3 <img src="https://blog.liuzyhn.top/post-images/addapp3.png" alt=""></br></p>
+<p>共享库:<br>
+图5 <img src="https://blog.liuzyhn.top/post-images/addapp5.png" alt=""> </br><br>
+图6 <img src="https://blog.liuzyhn.top/post-images/addapp6.png" alt=""> </br></p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[链接资源]]></title>
         <id>https://blog.liuzyhn.top/post/urlsource</id>
