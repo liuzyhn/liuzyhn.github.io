@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.liuzyhn.top</id>
     <title>学无止境</title>
-    <updated>2019-08-25T14:27:21.130Z</updated>
+    <updated>2019-08-25T14:31:10.116Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.liuzyhn.top"/>
     <link rel="self" href="https://blog.liuzyhn.top/atom.xml"/>
@@ -12,6 +12,91 @@
     <logo>https://blog.liuzyhn.top/images/avatar.png</logo>
     <icon>https://blog.liuzyhn.top/favicon.ico</icon>
     <rights>All rights reserved 2019, 学无止境</rights>
+    <entry>
+        <title type="html"><![CDATA[链接资源]]></title>
+        <id>https://blog.liuzyhn.top/post/urlsource</id>
+        <link href="https://blog.liuzyhn.top/post/urlsource">
+        </link>
+        <updated>2019-08-25T14:30:03.000Z</updated>
+        <content type="html"><![CDATA[<p>mysql锁表相关<br>
+http://blog.csdn.net/hw_libo/article/details/39080809</p>
+<p>Tomcat 使用apr优化:<br>
+http://blog.itpub.net/29510932/viewspace-1102187/</p>
+<p>http://www.cnblogs.com/rollenholt/p/4202631.html</p>
+<p>http://blog.sina.com.cn/s/blog_631d3a630101nb77.html</p>
+<p>http://pkaq.github.io/ 如是我闻</p>
+<p>http://www.huxiu.com/article/31152/1.html</p>
+<p>http://www.huxiu.com/article/31457/1.html</p>
+<p>http://aws.amazon.com/cn/free/?from=timeline&amp;isappinstalled=0</p>
+<p>https://www.owasp.org/index.php/Main_Page</p>
+<p>http://www.hackdig.com/?11/hack-7196.htm</p>
+<p>http://www.owasp.org.cn/owasp-project/download/OWASP_testing_guide</p>
+<p>http://mp.weixin.qq.com/s?__biz=MzA4NjM1OTYyNA==&amp;mid=202076944&amp;idx=1&amp;sn=8b47b7759d80f3b5aa959172c5284fae&amp;scene=1&amp;from=groupmessage&amp;isappinstalled=0#rd</p>
+<p>http://mp.weixin.qq.com/s?__biz=MzAxODE2MjM1MA==&amp;mid=202716839&amp;idx=1&amp;sn=18f788b77f4f6aca9c52d8e4a9b73e5c&amp;scene=1&amp;from=groupmessage&amp;isappinstalled=0#rd</p>
+<p>https://www.modern.ie/zh-cn</p>
+<p>http://mp.weixin.qq.com/s?__biz=MjM5MDE0Mjc4MA==&amp;mid=203561146&amp;idx=2&amp;sn=298469f222b0db8c266083352d46dfc9&amp;scene=1&amp;from=groupmessage&amp;isappinstalled=0#rd</p>
+<p>http://baike.baidu.com/view/1609487.htm</p>
+<p>https://docs.gradle.org/current/dsl/org.gradle.plugins.ide.eclipse.model.EclipseWtp.html</p>
+<p>http://www.infoq.com/cn/articles/backbone-vs-angular/ 前端可以关注，未必要在p2p中用</p>
+<p>http://cjch.iteye.com/blog/940855 maven常用命令</p>
+<p>日报 http://123.56.85.23:8080/bms<br>
+bugfree 124.193.90.198/bugfree/index.php?r=site/login<br>
+nexus http://127.0.0.1:8081/nexus<br>
+http://git.oschina.net/<br>
+https://github.com/<br>
+google host http://www.360kb.com/kb/2_150.html<br>
+http://www.flipboard.cn/explore</p>
+<p>https://github.com/huangkunyhx/upsmart-sdk-demo<br>
+https://github.com/huangkunyhx/upsmart-data-sdk</p>
+<p>http://www.360kb.com/kb/2_150.html google hosts 2015，持续更新 - 360知识库</p>
+<p>http://www.flipboard.cn/explore Flipboard 中国</p>
+<p>http://www.runoob.com/ 菜鸟教程<br>
+在 Web 项目中应用 Apache Shiro https://www.ibm.com/developerworks/cn/java/j-lo-shiro/<br>
+http://www.cnblogs.com/pyer/p/4752770.html 这些git技能够你用一年了 - pyer - 博客园</p>
+<p>http://jinnianshilongnian.iteye.com/</p>
+<p>http://www.liaoxuefeng.com/</p>
+<p>http://www.cnblogs.com/rollenholt/p/4202631.html</p>
+<p>java--<br>
+http://www.bo56.com/%E4%BD%BF%E7%94%A8varnish-nginx-lua%E6%90%AD%E5%BB%BA%E7%BD%91%E7%AB%99%E7%9A%84%E9%99%8D%E7%BA%A7%E7%B3%BB%E7%BB%9F/<br>
+http://downpour.iteye.com/blog/509417?page=4<br>
+http://mazhiyuan.iteye.com/blog/849032<br>
+http://www.jianshu.com/p/67afe711c731<br>
+http://blog.csdn.net/z363115269/article/details/8988518<br>
+http://www.diguage.com/archives/41.html<br>
+http://v.163.com/special/opencourse/algorithms.html<br>
+http://www.cnblogs.com/tianchi/archive/2012/11/11/2761631.html<br>
+http://www.jianshu.com/p/d9e4ddd1c530<br>
+http://handlebarsjs.com/<br>
+http://pkaq.github.io/<br>
+https://chaosleong.gitbooks.io/gradle-for-android/content/<br>
+http://www.ghostchina.com/introducing-the-handlebars-js-templating-engine/<br>
+http://segmentfault.com/a/1190000000342636?from=androidqq<br>
+http://www.my97.net/dp/demo/resource/2.4.asp<br>
+http://toutiao.io/<br>
+http://www.cnblogs.com/pyer/p/4752770.html</p>
+<p>read--<br>
+http://wsgzao.github.io/post/mac/<br>
+http://swift.gg/2015/08/26/efficient-json-in-swift-with-functional-concepts-and-generics/<br>
+http://github.tiankonguse.com/blog/2015/08/30/cache-think-record/<br>
+http://blog.chinaunix.net/uid-11639156-id-3077471.html<br>
+http://wustrive2008.github.io/2015/09/01/java/Java%E5%B8%B8%E8%A7%81%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA(OOM)%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/<br>
+https://openresty.org/download/agentzh-nginx-tutorials-zhcn.html<br>
+http://liujiacai.net/blog/2015/09/03/java-hashmap/<br>
+http://bss.csdn.net/m/topic/learning_path_weixin/frame_intro?id=1662&amp;nav=%E5%BE%AE%E4%BF%A1%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF&amp;nav_two=%E8%AE%A4%E8%AF%86%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%B9%B3%E5%8F%B0<br>
+http://www.bdqn.cn/news/201311/11834.shtml<br>
+http://appcode.aliapp.com/index.jsp</p>
+<p>http://www.cnproxy.com/proxy1.html<br>
+www.oraclefaq.com<br>
+metalink.oracle.com<br>
+www.redhat.net<br>
+http://blog.itful.co<br>
+www.centrexcc.com全是大师的<br>
+www.evdbt.com (Tim Gorman)<br>
+www.go-faster.co.uk (David Kurtz)<br>
+www.ixora.com.au (Steve Adams)</p>
+<p>http://damoqiongqiu.iteye.com/blog/1954618</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[nexus]]></title>
         <id>https://blog.liuzyhn.top/post/nexus</id>
