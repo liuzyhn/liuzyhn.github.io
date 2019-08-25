@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.liuzyhn.top</id>
     <title>学无止境</title>
-    <updated>2019-08-25T14:25:49.840Z</updated>
+    <updated>2019-08-25T14:27:21.130Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.liuzyhn.top"/>
     <link rel="self" href="https://blog.liuzyhn.top/atom.xml"/>
@@ -12,6 +12,43 @@
     <logo>https://blog.liuzyhn.top/images/avatar.png</logo>
     <icon>https://blog.liuzyhn.top/favicon.ico</icon>
     <rights>All rights reserved 2019, 学无止境</rights>
+    <entry>
+        <title type="html"><![CDATA[nexus]]></title>
+        <id>https://blog.liuzyhn.top/post/nexus</id>
+        <link href="https://blog.liuzyhn.top/post/nexus">
+        </link>
+        <updated>2019-08-25T14:26:19.000Z</updated>
+        <content type="html"><![CDATA[<p>nexus maven配置</p>
+<pre><code>Repository ID: aliyun
+Repository Name: Aliyun Repository
+Remote Storage Location: http://maven.aliyun.com/nexus/content/groups/public/
+
+Repository ID: central
+Repository Name: Central
+Remote Storage Location: https://repo1.maven.org/maven2/
+
+Repository ID: gradle-plugins
+Repository Name: gradle plugins
+Remote Storage Location: https://plugins.gradle.org/m2/
+
+Repository ID: jcenter
+Repository Name: jcenter
+Remote Storage Location: http://jcenter.bintray.com/
+
+Repository ID: jboos
+Repository Name: jboos
+Remote Storage Location: http://repository.jboss.org/nexus/content/groups/public-jboss/
+
+Repository ID: bsdn
+Repository Name: bsdn
+Remote Storage Location: http://nexus.bsdn.org/content/groups/public/
+
+Repository ID: oss-sonatype
+Repository Name: oss sonatype 
+Remote Storage Location: https://oss.sonatype.org/content/repositories/releases/
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[linux ip]]></title>
         <id>https://blog.liuzyhn.top/post/linux-ip</id>
