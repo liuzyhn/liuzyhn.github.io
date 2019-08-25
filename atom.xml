@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.liuzyhn.top</id>
     <title>学无止境</title>
-    <updated>2019-08-08T11:36:19.551Z</updated>
+    <updated>2019-08-25T14:14:23.839Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.liuzyhn.top"/>
     <link rel="self" href="https://blog.liuzyhn.top/atom.xml"/>
@@ -12,6 +12,58 @@
     <logo>https://blog.liuzyhn.top/images/avatar.png</logo>
     <icon>https://blog.liuzyhn.top/favicon.ico</icon>
     <rights>All rights reserved 2019, 学无止境</rights>
+    <entry>
+        <title type="html"><![CDATA[linux ip]]></title>
+        <id>https://blog.liuzyhn.top/post/linux-ip</id>
+        <link href="https://blog.liuzyhn.top/post/linux-ip">
+        </link>
+        <updated>2019-08-25T14:09:55.000Z</updated>
+        <content type="html"><![CDATA[<p>#linux 修改ip</p>
+<pre><code>---修改ip地址---
+即时生效:
+#ifconfig eth0 192.168.1.155 netmask 255.255.255.0
+
+重启生效:
+修改vi /etc/sysconfig/network-scripts/ifcfg-eth0
+
+---修改default gateway---
+即时生效:
+# route add default gw 192.168.1.1
+重启生效:
+修改vi /etc/sysconfig/network-scripts/ifcfg-eth0
+
+---修改dns---
+修改vi /etc/resolv.conf
+修改后即时生效，重启同样有效
+
+---修改host name---
+即时生效:
+# hostname test1
+重启生效:
+修改vi /etc/sysconfig/network
+# Created by anaconda
+NETWORKING=yes
+HOSTNAME=hostsname
+</code></pre>
+<p>#Linux设置固定IP</p>
+<pre><code>
+#  vi  /etc/sysconfig/network-scripts/ifcfg-eth0
+
+DEVICE=eth0
+BOOTPROTO=static
+IPADDR=192.168.0.116
+NETMASK=255.255.0.0
+GATEWAY=192.168.0.1
+ONBOOT=yes
+TYPE=Ethernet
+
+重启配置文件使之生效
+#  /etc/init.d/network  restart
+或者
+#  service network restart
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[db2 相关]]></title>
         <id>https://blog.liuzyhn.top/post/db2</id>
@@ -64,7 +116,7 @@ db2 &quot;import from XFJRCS_MESSAGE_SUBSCRIBE_INFO.ixf of ixf replace into XFJR
 <ol>
 <li>
 <p>整理数据<br>
-将 wdpt.ddl 拆分为 建库/表空间（~/wdpt/wdpt.ddl）、 schema/seq/表结构 (~/wdpt/wdpt-tables.ddl)、 表外键 (~/wdpt/wdpt-tables-fk.ddl) 三个文件</p>
+将 wdpt.sql 拆分为 建库/表空间（~/wdpt/wdpt.ddl）、 schema/seq/表结构 (~/wdpt/wdpt-tables.ddl)、 表外键 (~/wdpt/wdpt-tables-fk.ddl) 三个文件</p>
 </li>
 <li>
 <p>新建库（~/wdpt/wdpt.ddl）<br>
@@ -168,7 +220,21 @@ sudo yum makecache
 sudo yum update -y
 sudo yum install -y mysql-community-server
 sudo grep 'temporary password' /var/log/mysqld.log
-mysql -uroot -p -e &quot;ALTER USER 'root'@'localhost' IDENTIFIED BY 'Mysql@1234'&quot;</code></pre>
+mysql -uroot -p -e &quot;ALTER USER 'root'@'localhost' IDENTIFIED BY 'Mysql@1234'&quot;
+
+
+大小写：
+[mysqld]
+lower_case_table_names = 1
+
+严格格式校验
+修改一： sql_mode 去掉 NO_ZERO_DATE, NO_ZERO_IN_DATE 两个值
+[mysqld]
+sql_mode = &quot;ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION&quot;
+
+修改二：
+[mysqld]
+explicit_defaults_for_timestamp = 1</code></pre>
 ]]></content>
     </entry>
 </feed>
