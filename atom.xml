@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.liuzyhn.top</id>
     <title>学无止境</title>
-    <updated>2019-08-25T14:17:00.317Z</updated>
+    <updated>2019-08-25T14:25:49.840Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.liuzyhn.top"/>
     <link rel="self" href="https://blog.liuzyhn.top/atom.xml"/>
@@ -36,7 +36,7 @@
 修改vi /etc/resolv.conf
 修改后即时生效，重启同样有效
 
----修改host name---
+---修改host name 方法一---
 即时生效:
 # hostname test1
 重启生效:
@@ -44,6 +44,11 @@
 # Created by anaconda
 NETWORKING=yes
 HOSTNAME=hostsname
+
+---修改host name 方法二---
+查看hostname   ：   hostname
+修改hostname   ：   hostnamectl set-hostname  master (比如要修改为master)
+修改完重启生效 ：reboot
 </code></pre>
 <p>#Linux设置固定IP</p>
 <pre><code>

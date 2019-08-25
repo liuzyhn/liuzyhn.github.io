@@ -11,7 +11,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://blog.liuzyhn.top/favicon.ico?v=1566742568887">
+<link rel="shortcut icon" href="https://blog.liuzyhn.top/favicon.ico?v=1566743146983">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://blog.liuzyhn.top/styles/main.css">
 
@@ -38,7 +38,7 @@
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://blog.liuzyhn.top">
-        <img src="https://blog.liuzyhn.top/images/avatar.png?v=1566742568887" class="site-logo">
+        <img src="https://blog.liuzyhn.top/images/avatar.png?v=1566743146983" class="site-logo">
         <h1 class="site-title">学无止境</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -124,7 +124,7 @@
 修改vi /etc/resolv.conf
 修改后即时生效，重启同样有效
 
----修改host name---
+---修改host name 方法一---
 即时生效:
 # hostname test1
 重启生效:
@@ -132,6 +132,11 @@
 # Created by anaconda
 NETWORKING=yes
 HOSTNAME=hostsname
+
+---修改host name 方法二---
+查看hostname   ：   hostname
+修改hostname   ：   hostnamectl set-hostname  master (比如要修改为master)
+修改完重启生效 ：reboot
 </code></pre>
 <p>#Linux设置固定IP</p>
 <pre><code>
