@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.liuzyhn.top</id>
     <title>学无止境</title>
-    <updated>2019-09-27T10:07:28.920Z</updated>
+    <updated>2019-09-27T10:14:38.073Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.liuzyhn.top"/>
     <link rel="self" href="https://blog.liuzyhn.top/atom.xml"/>
@@ -12,6 +12,77 @@
     <logo>https://blog.liuzyhn.top/images/avatar.png</logo>
     <icon>https://blog.liuzyhn.top/favicon.ico</icon>
     <rights>All rights reserved 2019, 学无止境</rights>
+    <entry>
+        <title type="html"><![CDATA[db2 centos 安装]]></title>
+        <id>https://blog.liuzyhn.top/post/db2-centos-install</id>
+        <link href="https://blog.liuzyhn.top/post/db2-centos-install">
+        </link>
+        <updated>2019-09-27T08:54:29.000Z</updated>
+        <summary type="html"><![CDATA[<p>db2 (v11.1) centos 安装</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>db2 (v11.1) centos 安装</p>
+<!-- more -->
+<ol>
+<li>
+<p>下载DB2数据库软件包</p>
+</li>
+<li>
+<p>解压 tar -zxvf db2</p>
+<pre><code> 注:安装切换到root用户下
+</code></pre>
+</li>
+<li>
+<p>安装</p>
+<pre><code> expc/db2_deinstall
+</code></pre>
+</li>
+<li>
+<p>注册license</p>
+<pre><code> /opt/ibm/db2/V11.1/adm/db2licm -a ~/expc/db2/license/db2expc_uw.lic
+</code></pre>
+</li>
+<li>
+<p>创建三个用户组</p>
+<pre><code> # groupadd -g 901 db2iadm1
+ # groupadd -g 902 db2fadm1
+ # groupadd -g 903 db2dadm1
+</code></pre>
+</li>
+<li>
+<p>创建三个用户(注意设置密码)</p>
+<pre><code> useradd -g db2iadm1 -u 101 -d  /home/db2inst1 -m  db2inst1
+ useradd -g db2fadm1 -u 102 -d  /home/db2fenc1 -m  db2fenc1
+ useradd -g db2dadm1 -u 103 -d  /home/db2dasusr1 -m  db2dasusr1
+</code></pre>
+</li>
+<li>
+<p>检查用户组和用户是否创建成功</p>
+<pre><code> 用户组: more /etc/group | grep db2
+ 用户: more /etc/passwd | grep db2
+</code></pre>
+</li>
+<li>
+<p>创建实例</p>
+<pre><code> cd /opt/ibm/db2/V11.1/instance
+ ./dascrt -u db2dasusr1 (注:创建DB2管理服务器)
+ ./db2icrt -u db2fenc1 db2inst1 (注:创建DB2实例)
+</code></pre>
+</li>
+<li>
+<p>查看DB2许可证\版本情况</p>
+<pre><code> su - db2inst1
+ db2licm -l
+ db2level
+</code></pre>
+</li>
+<li>
+<p>启动数据库</p>
+<pre><code>db2start
+</code></pre>
+</li>
+</ol>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[链接资源]]></title>
         <id>https://blog.liuzyhn.top/post/urlsource</id>

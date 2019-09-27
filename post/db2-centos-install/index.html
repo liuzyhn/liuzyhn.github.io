@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>liunx | 学无止境</title>
+<title>db2 centos 安装 | 学无止境</title>
 <meta name="description" content="人生不穷,
 有志为根.
 学海无涯,唯勤是岸.">
@@ -15,6 +15,12 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://blog.liuzyhn.top/styles/main.css">
 
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
 
 
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -95,44 +101,95 @@
 
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
-          <h2 class="current-tag">标签: liunx</h2>
-          
-            <article class="post-item">
-              <div class="left">
-                <a href="https://blog.liuzyhn.top/post/postgresql-install">
-                  <h2 class="post-title">postgresql 安装</h2>
-                </a>
-                <div class="post-date">
-                  2017-08-14
-                </div>
-                <div class="post-abstract">
-                  <p>记录下postgresql在centos7上安装中的使用的相关命定，postgresql安装说明<a href="https://www.postgresql.org/download/linux/redhat/#yum">官网地址</a></p>
+          <div class="post-detail">
+            <h2 class="post-title">db2 centos 安装</h2>
+            <div class="post-date">2019-09-27</div>
+            
+            <div class="post-content">
+              <p>db2 (v11.1) centos 安装</p>
+<!-- more -->
+<ol>
+<li>
+<p>下载DB2数据库软件包</p>
+</li>
+<li>
+<p>解压 tar -zxvf db2</p>
+<pre><code> 注:安装切换到root用户下
+</code></pre>
+</li>
+<li>
+<p>安装</p>
+<pre><code> expc/db2_deinstall
+</code></pre>
+</li>
+<li>
+<p>注册license</p>
+<pre><code> /opt/ibm/db2/V11.1/adm/db2licm -a ~/expc/db2/license/db2expc_uw.lic
+</code></pre>
+</li>
+<li>
+<p>创建三个用户组</p>
+<pre><code> # groupadd -g 901 db2iadm1
+ # groupadd -g 902 db2fadm1
+ # groupadd -g 903 db2dadm1
+</code></pre>
+</li>
+<li>
+<p>创建三个用户(注意设置密码)</p>
+<pre><code> useradd -g db2iadm1 -u 101 -d  /home/db2inst1 -m  db2inst1
+ useradd -g db2fadm1 -u 102 -d  /home/db2fenc1 -m  db2fenc1
+ useradd -g db2dadm1 -u 103 -d  /home/db2dasusr1 -m  db2dasusr1
+</code></pre>
+</li>
+<li>
+<p>检查用户组和用户是否创建成功</p>
+<pre><code> 用户组: more /etc/group | grep db2
+ 用户: more /etc/passwd | grep db2
+</code></pre>
+</li>
+<li>
+<p>创建实例</p>
+<pre><code> cd /opt/ibm/db2/V11.1/instance
+ ./dascrt -u db2dasusr1 (注:创建DB2管理服务器)
+ ./db2icrt -u db2fenc1 db2inst1 (注:创建DB2实例)
+</code></pre>
+</li>
+<li>
+<p>查看DB2许可证\版本情况</p>
+<pre><code> su - db2inst1
+ db2licm -l
+ db2level
+</code></pre>
+</li>
+<li>
+<p>启动数据库</p>
+<pre><code>db2start
+</code></pre>
+</li>
+</ol>
 
-                </div>
-              </div>
-              
-            </article>
-          
-            <article class="post-item">
-              <div class="left">
-                <a href="https://blog.liuzyhn.top/post/liunx-mysql-install">
-                  <h2 class="post-title">liunx环境 mysql安装</h2>
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://blog.liuzyhn.top/post/urlsource">
+                  <h3 class="post-title">
+                    链接资源
+                  </h3>
                 </a>
-                <div class="post-date">
-                  2017-05-04
-                </div>
-                <div class="post-abstract">
-                  
-                </div>
               </div>
-              
-            </article>
-          
+            
 
-          <div class="pagination-container">
-  
-  
-</div>
+            
+              
+                <div id="gitalk-container" data-aos="fade-in"></div>
+              
+
+              
+            
+
+          </div>
 
         </div>
       </div>
@@ -154,6 +211,29 @@ var app = new Vue({
 })
 
 </script>
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: 'ac7ca979526c2aac4403',
+        clientSecret: '2aa26bb1921e4e73b9a1548335a24ea001023a8e',
+        repo: 'liuzyhn.github.io',
+        owner: 'liuzyhn',
+        admin: ['liuzyhn'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
 
 
 
